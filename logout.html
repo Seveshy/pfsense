@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Captive Portal Logout Page</title>
+
+  <script>
+	setTimeout(function (){
+		document.getElementById("error").remove();
+	}, 6000);
+	</script>
+</head>
+
+<body>
+<div id="content">
+<img src="./screens/unib.png"/>
+	<div class="login-card">
+	  <form name="login_form" method="post" action="$PORTAL_ACTION$">
+		<input type="text" name="auth_user" placeholder="RA" id="auth_user">
+		<input type="password" name="auth_pass" placeholder="Password" id="auth_pass">
+      <div class="login-help">
+        <ul class="list">
+          <li class="list__item">
+            <label class="label--checkbox">
+              <input type="checkbox" class="checkbox" onchange="document.getElementById('login').disabled = !this.checked;">
+              <span> <a target="_blank" rel="noopener" href="http://www.termslicences.com/example.pdf">Termos e liçensas</a></span>
+            </label>
+          </li>
+        </ul>
+      </div>
+		<input name="redirurl" type="hidden" value="$PORTAL_REDIRURL$">
+		<input type="submit" name="accept" class="login login-submit" value="Entrar" id="login" disabled>
+		<p class="error" id="error">Você foi desconectado.</p>
+	  </form>
+	</div>
+</div>
+</body>
+</html>
